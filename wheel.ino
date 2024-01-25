@@ -1,5 +1,7 @@
-Wheel::Wheel() {}
+// function related to wheel class
 
+// default and main constructors
+Wheel::Wheel() {}
 Wheel::Wheel(int in1, int in2, int en) {
   input1 = in1;
   input2 = in2;
@@ -12,11 +14,13 @@ Wheel::Wheel(int in1, int in2, int en) {
   this->stop();
 }
 
+// wheels motion direction
 void Wheel::stop() {
   digitalWrite(input1, LOW);
   digitalWrite(input2, LOW);
   analogWrite(enable, speed);
 }
+
 
 void Wheel::forward() {
   digitalWrite(input1, LOW);
@@ -28,6 +32,7 @@ void Wheel::reverse() {
   digitalWrite(input1, HIGH);
 }
 
+// control speed
 void Wheel::setSpeed(int speed_value) {
   this->speed = speed_value;
   analogWrite(enable, speed);

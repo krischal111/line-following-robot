@@ -1,10 +1,10 @@
 // Wheel class
 class Wheel {
-  public:
-  int input1, input2, enable; // pins
-  int speed=100; // value of speed
-  int lower_limit=20;
-  int upper_limit=200;
+public:
+  char input1, input2, enable;  // pins
+  int speed = 100;             // value of speed
+  int lower_limit = 20;
+  int upper_limit = 255;
 
   Wheel();
   Wheel(int in1, int in2, int en);
@@ -15,37 +15,28 @@ class Wheel {
   void setSpeed(int speed_value);
   void increaseSpeed();
   void decreaseSpeed();
-
 };
-
 
 
 /*! Important constants */
 const int IR_count = 4;
-const int IR[4] = {2, 3, 4, 5};
-
+const int IR[4] = { 2, 3, 4, 5 };
 
 // Important variables
 Wheel *wheelA, *wheelB;
-int enable_line_follow = 1;
+int no_computer_intervention = 1;
 
+
+// Setting up: Wheels, IR, Serial
 void setup() {
-  // put your setup code here, to run once:
-  wheel_setup();
-  IR_setup();
-  Serial.begin(9600);
-}
-
-void wheel_setup() {
   wheelA = new Wheel(A0, A1, 9);
   wheelB = new Wheel(A2, A3, 6);
-}
-void stop_wheels() {
-  wheelA->stop();
-  wheelB->stop();
+  IR_setup();
+  Serial.begin(9600);
+  stop_wheels();
 }
 void IR_setup() {
-  for (int i = 0; i<IR_count; ++i)
+  for (int i = 0; i < IR_count; ++i)
     pinMode(IR[i], INPUT);
 }
 
@@ -55,9 +46,13 @@ void loop() {
   // wheel_test();
   computer_control();
 
-  if (enable_line_follow) {
+  if (no_computer_intervention) {
     line_follow_basic_control();
   }
 }
 
 
+void stop_wheels() {
+  wheelA->stop();
+  wheelB->stop();
+}
