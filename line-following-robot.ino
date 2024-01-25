@@ -23,14 +23,14 @@ const int IR_count = 4;
 const int IR[4] = { 2, 3, 4, 5 };
 
 // Important variables
-Wheel *wheelA, *wheelB;
+Wheel *left_wheel, *right_wheel;
 int no_computer_intervention = 1;
 
 
 // Setting up: Wheels, IR, Serial
 void setup() {
-  wheelA = new Wheel(A0, A1, 9);
-  wheelB = new Wheel(A2, A3, 6);
+  left_wheel = new Wheel(A0, A1, 9);
+  right_wheel = new Wheel(A2, A3, 6);
   IR_setup();
   Serial.begin(9600);
   stop_wheels();
@@ -47,12 +47,11 @@ void loop() {
   computer_control();
 
   if (no_computer_intervention) {
-    line_follow_basic_control();
+    right_wall();
   }
 }
 
-
 void stop_wheels() {
-  wheelA->stop();
-  wheelB->stop();
+  left_wheel->stop();
+  right_wheel->stop();
 }

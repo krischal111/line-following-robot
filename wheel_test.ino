@@ -11,23 +11,23 @@ void wheel_test() {
 
 // testing 
 void stop_wheels_test() {
-  wheelA->stop();
-  wheelB->stop();
+  left_wheel->stop();
+  right_wheel->stop();
   Serial.println("\nTest: Both wheels stopped");
   delay(500);
 }
 
 
 void forward_test() {
-  wheelA->forward();
-  wheelB->forward();
+  left_wheel->forward();
+  right_wheel->forward();
   Serial.println("\nTest: Wheel A and B forward mode");
   delay(1000);
 }
 
 void reverse_test() {
-  wheelA->reverse();
-  wheelB->reverse();
+  left_wheel->reverse();
+  right_wheel->reverse();
   Serial.println("\nTest: Wheel B and A reverse mode");
   delay(1000);
 }

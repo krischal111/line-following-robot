@@ -35,40 +35,40 @@ void computer_control() {
   // control wheel A
   switch (input) {
     case 'q':
-      wheelA->forward();
+      left_wheel->forward();
       break;
     case 'e':
-      wheelA->stop();
+      left_wheel->stop();
       break;
     case 'w':
-      wheelA->increaseSpeed();
+      left_wheel->increaseSpeed();
       Serial.print("Wheel A speed= ");
-      Serial.println(wheelA->speed);
+      Serial.println(left_wheel->speed);
       break;
     case 's':
-      wheelA->decreaseSpeed();
+      left_wheel->decreaseSpeed();
       Serial.print("Wheel A speed= ");
-      Serial.println(wheelA->speed);
+      Serial.println(left_wheel->speed);
       break;
   }
 
   // control wheel B
   switch (input) {
     case 'u':
-      wheelB->forward();
+      right_wheel->forward();
       break;
     case 'o':
-      wheelB->stop();
+      right_wheel->stop();
       break;
     case 'i':
-      wheelB->increaseSpeed();
+      right_wheel->increaseSpeed();
       Serial.print("Wheel B speed= ");
-      Serial.println(wheelB->speed);
+      Serial.println(right_wheel->speed);
       break;
     case 'k':
-      wheelB->decreaseSpeed();
+      right_wheel->decreaseSpeed();
       Serial.print("Wheel B speed= ");
-      Serial.println(wheelB->speed);
+      Serial.println(right_wheel->speed);
       break;
   }
 
