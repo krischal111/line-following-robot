@@ -1,10 +1,3 @@
-const int IR_count = 4;
-
-void IR_setup() {
-  for (int i = 0; i<IR_count; ++i)
-    pinMode(IR[i], INPUT);
-}
-
 void IR_test() {
   for(int i = 0; i<IR_count; ++i){
     Serial.print(i+1);

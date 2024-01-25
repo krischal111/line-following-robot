@@ -8,12 +8,15 @@ void wheel_test() {
   stop_wheels();
 }
 
-void stop_wheels() {
+
+
+void stop_wheels_test() {
   wheelA->stop();
   wheelB->stop();
   Serial.write("Test: Both wheels stopped");
   delay(500);
 }
+
 
 void forward_test() {
   wheelA->forward();
