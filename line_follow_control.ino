@@ -6,8 +6,8 @@
 
 
 // convention
-// Kalo = LOW signal
-// reason : kalo = sensor ma balxa = mero ma singal didaina
+// Kalo = HIGH signal
+// reason : kalo = sensor ma nibhxa = mero ma singal dinxa
 
 int left_ir, right_ir, center_ir_r, center_ir_l;
 bool left_touching, right_touching, center_on_line;
@@ -80,9 +80,9 @@ void read_signals() {
 
 void process_signals() {
   // left IR on black, black = low signal input
-  left_touching = left_ir == LOW;
-  right_touching = right_ir == LOW;
-  center_on_line = center_ir_l==LOW || center_ir_r==LOW;
+  left_touching = left_ir == HIGH;
+  right_touching = right_ir == HIGH;
+  center_on_line = center_ir_l==HIGH || center_ir_r==HIGH;
 }
 
 String signal_value(int signal) {
