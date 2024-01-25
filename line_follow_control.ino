@@ -1,9 +1,13 @@
-bool logging = false;
+// Things to check
+// 1. If left and right wheels are as expected
+// 2. If IRs are as expected
+// 3. If IR give signal when it encounters white (to the arduino)
+// 4. If left and right wheel rotate towards the line
+
 
 // convention
-// kalo = sensor ma balxa
-// sensor ma balxa = mero ma low
-// kalo = low
+// Kalo = LOW signal
+// reason : kalo = sensor ma balxa = mero ma singal didaina
 
 int left_ir, right_ir, center_ir_r, center_ir_l;
 bool left_touching, right_touching, center_on_line;
@@ -47,10 +51,8 @@ void line_follow_basic_control() {
 }
 
 void turn_left() {
-
 }
 void turn_right() {
-
 }
 
 bool display_ir_values = true;
@@ -81,7 +83,6 @@ void process_signals() {
   left_touching = left_ir == LOW;
   right_touching = right_ir == LOW;
   center_on_line = center_ir_l==LOW || center_ir_r==LOW;
-
 }
 
 String signal_value(int signal) {
